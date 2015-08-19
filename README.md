@@ -12,5 +12,5 @@ Run from Powershell
 
 Run from cmd with
 
-    powershell -ExecutionPolicy bypass "ansible-cygwin-installer.ps1"
+    powershell -ExecutionPolicy bypass ".\ansible-cygwin-installer.ps1"
 

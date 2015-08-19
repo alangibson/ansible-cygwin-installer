@@ -6,7 +6,7 @@
 #    & ansible-cygwin-installer.ps1
 #
 # Run from cmd with
-#    powershell -ExecutionPolicy bypass "ansible-cygwin-installer.ps1"
+#    powershell -ExecutionPolicy bypass ".\ansible-cygwin-installer.ps1"
 #
 
 #
@@ -14,7 +14,7 @@
 #
 
 $storageDir = $pwd
-$cygwinHome = "c:\cygwin"
+$cygwinHome = "c:\tools\cygwin"
 $cygwinUrlRoot = "http://cygwin.com"
 $getPipUrlRoot = "https://bootstrap.pypa.io"
 $cygwinMirror = "http://cygwin.mirrors.pair.com"
@@ -45,7 +45,7 @@ if ( ! ( Test-Path -Path $cygwinSetupPath -PathType Leaf ) ) {
     $webclient.DownloadFile($url,$file)
 }
 
-$cygwinSetupArgs = '--no-admin', '-q', '-R', "$cygwinHome", '-s', "$cygwinMirror", '--packages="wget,python,git,vim,openssh,openssl,openssh-devel,libsasl2,ca-certificates,python-crypto,python-openssl,python-setuptools,dash,rebase"'
+$cygwinSetupArgs = '--no-admin', '-q', '-R', "$cygwinHome", '-s', "$cygwinMirror", '--packages="wget,python,git,vim,make,openssh,openssl,openssh-devel,libsasl2,ca-certificates,python-crypto,python-openssl,python-setuptools,dash,rebase"'
 Start-Process -FilePath $cygwinSetupPath -ArgumentList $cygwinSetupArgs -Wait
 
 # Add cygwin bin dir to path
